@@ -17,9 +17,9 @@ const TypeSelector = ({changeType, selected}) => {
                         let id = NumericSystems[num]['id'];
                         return (
                             <Option 
-                                key={id}
-                                datakey={id}
-                                onClick={() => handleTypeChange(id)}
+                                key={num}
+                                datakey={num}
+                                onClick={() => handleTypeChange(num)}
                                 selected={selected}
                             >
                                 {id}
