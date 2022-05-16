@@ -1,7 +1,7 @@
 const NumericSystems = {
     'Binary' : {
         'id' : 'BIN',
-        'base': 2,
+        'base': 1,
         'regex' : '^[0-1]+$'
     }, 
     'Octal' : {
@@ -21,7 +21,7 @@ const NumericSystems = {
     },
     'Roman' : {
         'id' : 'ROM',
-        'base' : 'Letters',
+        'base' : undefined,
         'regex' : '^[^0-9]+$'
     }
 }
