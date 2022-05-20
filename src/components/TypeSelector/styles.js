@@ -4,6 +4,7 @@ export const OptionsContainer = styled.div`
     max-width: 90%;
     border-radius: 0.75rem;
     background-color: #555;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     filter: drop-shadow(0 0.25rem 0.15rem #222);
     padding: 0 1rem;
 

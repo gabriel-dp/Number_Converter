@@ -50,6 +50,7 @@
     3rd - repeats the process until the end, excluding the algarisms already readed
     ----------*/
     function ConvertToRoman (number) {
+        number = parseInt(number);
 
         if (isValid(number)) {
 
@@ -114,6 +115,10 @@
         return parseInt(string, 10);
     }
 
+    function isOnlyText (string) {
+        return (!(/^[0-9]+$/.test(string)));
+    };
+
     /*----------
     transforms the inserted string of roman numerals in a integer number
     1st - compares if the first char has a relation with the second
@@ -121,6 +126,8 @@
     3rd - repeats the process until the end, excluding the algarisms already readed
     ----------*/
     function ConvertToInteger (string) {
+
+        if (!isOnlyText(string)) return null;
 
         const number = InvertKeyValue(letter);
         var finalNumber = 0;

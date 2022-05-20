@@ -9,7 +9,7 @@ export const InputArea = styled.input`
 
     border-radius: 1rem;
     padding: 1rem;
-    border: 'none';
+    border: none;
     outline: ${props => props.isValid ? 'none' : '3px solid #f00'};
 
     select:focus {
