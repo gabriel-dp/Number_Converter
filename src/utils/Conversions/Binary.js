@@ -7,6 +7,12 @@ const HexLetters = {
     'F' : 15
 }
 
+/*
+    converts a number to binary
+    divides the number by two, the remainder is the digit of binary and the quotient will be divided until it ends
+    for decimals, insert the full number
+    for octal or hexadecimal, insert digit-by-digit
+*/
 function divisionByTwo (number, digits) {
     let operator = number, remainder = '';
 
@@ -23,26 +29,21 @@ function divisionByTwo (number, digits) {
     return result;
 }
 
-function digitsBase (base) {
-    let counter = 0;
-    for (;base > 1; counter++) {
-        base /= 2;
-    }
-    return base;
-}
-
+/*  
+    converts a octal or hexadecimal number to binary
+    gets the 
+*/
 function baseFactor (number, base) {
     let operator = number.toString(), result = '';
 
     while (operator.length > 0) {
         let char = operator[0];
-        if (!(/^[0-9]+$/.test(char))) {
-            char = HexLetters[char];
-        }
-        result += divisionByTwo(parseInt(char), digitsBase(base));
+        if (!(/^[0-9]+$/.test(char))) char = HexLetters[char];
+        result += divisionByTwo(parseInt(char), Math.log2(base));
         operator = operator.substring(1);
     }
-    
+    result = (parseInt(result)).toString();
+
     return result;
 }
 
@@ -60,8 +61,26 @@ function ConvertBinaryToDecimal (number) {
         result += (parseInt(operator[0])*Math.pow(2, operator.length-1));
         operator = operator.substring(1);
     }
-    console.log(result);
-    return result;
+    //console.log(result.toString());
+    return result.toString();
 }
 
-export { ConvertToBinary, ConvertBinaryToDecimal };
+function ConvertBinaryToBase2 (number, base) {
+    let operator = number.toString(), result = '';
+    let digits = Math.log2(base);
+
+    while (operator.length > 0) {
+        if (operator.length >= digits) {
+            result += ConvertBinaryToDecimal(operator.slice(operator.length - digits));
+        } else {
+            result += ConvertBinaryToDecimal(operator);
+        }
+        operator = operator.slice(0, -digits);
+    }
+
+    let reverseResult = result.split("").reverse().join("");
+
+    return reverseResult;
+}
+
+export { ConvertToBinary, ConvertBinaryToDecimal, ConvertBinaryToBase2 };

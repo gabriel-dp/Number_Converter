@@ -3,7 +3,7 @@ import NumericSystems from '../../utils/NumericSystems';
 
 import { InputArea } from "./styles";
 
-const InputNumber = ({type, handleInputChange}) => {
+const InputNumber = ({ type, handleInputChange }) => {
 
     const [inputRegex, setInputRegex] = useState('^[0-9]*$');
     const [isValid, setIsValid] = useState(true);

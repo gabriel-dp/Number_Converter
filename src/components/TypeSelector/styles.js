@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const OptionsContainer = styled.div`
     max-width: 90%;
     border-radius: 0.75rem;
-    background-color: #666;
-    filter: drop-shadow(0 0.25rem 0.15rem #333);
+    background-color: #555;
+    filter: drop-shadow(0 0.25rem 0.15rem #222);
     padding: 0 1rem;
 
     margin: 1rem;
@@ -17,7 +17,7 @@ export const OptionsContainer = styled.div`
 `;
 
 export const Option = styled.div`
-    background-color: ${props => props.selected === props.datakey ? '#888' : '#666'};
+    background-color: ${props => props.selected === props.datakey ? '#777' : '#555'};
     padding: 0.5rem 0.8rem;
     
     color: white;
@@ -26,11 +26,17 @@ export const Option = styled.div`
     text-decoration: bold;
 
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 
-    filter: ${props => props.isSelected === true ? 'drop-shadow(0 0.25rem 0.15rem #222);' : 'background-color: #666'};
+    filter: ${props => props.isSelected === true ? 'drop-shadow(0 0.25rem 0.15rem #222);' : 'background-color: #555'};
     
     :hover {
-        background-color: #888;
+        background-color: #777;
     }
 `;  
+
+export const Title = styled.h2`
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+`;

@@ -1,6 +1,6 @@
 import NumericSystems from './NumericSystems';
 import { ConvertToRoman, ConvertToInteger } from './Conversions/DecimalRoman';
-import { ConvertToBinary, ConvertBinaryToDecimal } from './Conversions/Binary';
+import { ConvertToBinary, ConvertBinaryToDecimal, ConvertBinaryToBase2 } from './Conversions/Binary';
 
 const ToDecimal = (value, typeFrom) => {
     if (typeFrom === 'Binary') return ConvertBinaryToDecimal(value);
@@ -8,8 +8,8 @@ const ToDecimal = (value, typeFrom) => {
 }
 
 const ToBase2 = (value, typeFrom, typeTo) => {
-    if (typeFrom === 'Binary') return 0 // ConvertBinaryToBase(value, 8);
-    else return 0 //ConvertBinaryToBase(ConvertToBinary(value, NumericSystems[typeFrom]['base']), NumericSystems[typeTo]['base']);
+    if (typeFrom === 'Binary') return ConvertBinaryToBase2(value, 8);
+    else return ConvertBinaryToBase2(ConvertToBinary(value, NumericSystems[typeFrom]['base']), NumericSystems[typeTo]['base']);
 }
 
 const ToRoman = (value, typeFrom) => {
@@ -18,7 +18,7 @@ const ToRoman = (value, typeFrom) => {
 }
 
 const ToBinary = (value, typeFrom) => {
-    ConvertToBinary(value, NumericSystems[typeFrom]['base']);
+    return ConvertToBinary(value, NumericSystems[typeFrom]['base']);
 }
 
 

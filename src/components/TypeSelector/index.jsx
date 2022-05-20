@@ -1,8 +1,8 @@
 import NumericSystems from '../../utils/NumericSystems';
 
-import { OptionsContainer, Option } from './styles';
+import { OptionsContainer, Option, Title } from './styles';
 
-const TypeSelector = ({changeType, selected}) => {
+const TypeSelector = ({ title, changeType, selected }) => {
 
     const handleTypeChange = (id) => {
         changeType(id);
@@ -10,6 +10,7 @@ const TypeSelector = ({changeType, selected}) => {
 
     return (
         <>
+            <Title>{title}</Title>
             <OptionsContainer>
                 {
                     Object.keys(NumericSystems).map((num) => 

@@ -3,6 +3,7 @@ import NumberConverter from '../../utils/NumberConverter';
 
 import TypeSelector from '../../components/TypeSelector';
 import InputNumber from '../../components/InputNumber';
+import Result from '../../components/Result';
 
 import {Screen} from './styles';
 
@@ -32,10 +33,10 @@ const Converter = () => {
 
     return (
         <Screen>
-            <TypeSelector changeType={handleTypeFromChange} selected={typeFrom}/>
+            <TypeSelector title={"Origin type"} changeType={handleTypeFromChange} selected={typeFrom}/>
             <InputNumber handleInputChange={handleInputChange} type={typeFrom}/>
-            <TypeSelector changeType={handleTypeToChange} selected={typeTo}/>
-            <p>{result}</p>
+            <TypeSelector title={"Type to convert"} changeType={handleTypeToChange} selected={typeTo}/>
+            <Result result={result}/>
         </Screen>
     );
 }
