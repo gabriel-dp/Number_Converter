@@ -65,21 +65,28 @@ function ConvertBinaryToDecimal (number) {
     return result.toString();
 }
 
+function ConvertDecimalToHex (number) {
+    let operator = parseInt(number);
+    operator = Object.keys(HexLetters).find(key => HexLetters[key] === operator); 
+    return operator.toString();
+}
+
 function ConvertBinaryToBase2 (number, base) {
     let operator = number.toString(), result = '';
     let digits = Math.log2(base);
 
     while (operator.length > 0) {
-        if (operator.length >= digits) {
-            result += ConvertBinaryToDecimal(operator.slice(operator.length - digits));
-        } else {
-            result += ConvertBinaryToDecimal(operator);
-        }
+        let char = operator;
+
+        if (operator.length >= digits) char = operator.slice(operator.length - digits);
+        char = ConvertBinaryToDecimal(char);
+        if (parseInt(char) > 9) char = ConvertDecimalToHex(char);
+
+        result += char;
         operator = operator.slice(0, -digits);
     }
 
     let reverseResult = result.split("").reverse().join("");
-
     return reverseResult;
 }
 
