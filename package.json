@@ -1,7 +1,7 @@
 {
   "name": "number-converter",
   "version": "1.0.0",
-  "homepage": "https://gabrieldp23.github.io/Number_Converter",
+  "homepage": "https://gabriel-dp.github.io/Number_Converter",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
